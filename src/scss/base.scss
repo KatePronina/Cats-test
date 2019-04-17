@@ -1,0 +1,31 @@
+// basic 
+$violet: #9669af;
+
+@mixin btn {
+    background-color: darken($violet, 10%);
+    color: #ffffff;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: .2s;
+
+    &:hover {
+        border-color: #ffffff;
+        background-color: $violet;
+    }
+}
+
+body {
+ background-color: $violet;
+ color: #ffffff;
+ font-size: 16px;
+ font-family: 'Roboto', sans-serif;
+ padding: 0;
+ margin: 0;
+}
+
+// sections
+@import 'sections/main.scss';
+@import 'sections/game.scss';
+@import 'sections/final.scss';
+@import 'sections/modalConfirm.scss';

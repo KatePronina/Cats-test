@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Тест на знание пород кошек</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel='stylesheet' href='dist/style.css'>
+    </head>
+    <body>
+        <div class="wrapper">
+
+        </div>
+
+        <!-- Шаблоны -->
+        <!-- Стартовая страница -->
+        <template id="start">
+            <section class="section screen">
+                <h1 class="section__title">Мяу-тест: Угадаете породы кошек по фото?</h1>
+                <p class="section__description">
+                    Любить кошек все умеют, а вот знать, какая порода как выглядит, - не особо! Но, может, это не про вас? Сможете набрать 10/10 в этом тесте на знание пород кошек?
+                </p>
+                <section class="rules section__rules">
+                    <h2 class="rules__title">Правила</h2>
+                    <ul class="rules__description">
+                        <li class="rules__item">Угадай 10 раз породу для каждого изображения кота</li>
+                        <li class="rules__item">Длительность каждой попытки 30 секунд</li>
+                        <li class="rules__item">Более 3х раз ошибиться нельзя</li>
+                    </ul>
+                </section>
+                <form action="#" class="section__form">
+                    <input class="section__form-input" type="text" placeholder="Введите Ваше имя">
+                    <button class="section__form-btn" type="submit" disabled>Поехали!</button>
+                </form>
+            </section>
+        </template>
+
+        <!-- Экран вопроса -->
+        <template id="question">
+            <section class="question screen">
+                <header class="header question__header">
+                  <button class="back header__back">Вернуться к началу</button>
+                  <span class="timer header__timer">30</span>
+                  <p class="lives header__lives">Осталось жизней: <span class="lives__number">3</span></p>
+                </header>
+                <section class="task">
+                  <p class="task__title">Какая это порода?</p>
+                  <div class="task__image">
+                    <picture>
+                      <source srcset="img/webp/task1.webp" type="image/webp">
+                      <img src="img/task1.jpg" alt="Какая это порода?" class="task__img">
+                    </picture>
+                  </div>
+                  <form action="#" class="task__answers">
+                    <input id="birman" type="radio" name="task1" value="birman" class="task__input">
+                    <label for="birman" class="task__answer">Бирманская</label>
+  
+                    <input id="bengal" type="radio" name="task1" value="bengal" class="task__input">
+                    <label for="bengal" class="task__answer">Бенгальская короткошерстная</label>
+  
+                    <input id="balinez" type="radio" name="task1" value="balinez" class="task__input">
+                    <label for="balinez" class="task__answer">Балинезийская</label>
+                  </form>
+                </section>
+                <ul class="task__stats stats">
+                    <li class="stats__result stats__result--wrong"></li>
+                    <li class="stats__result stats__result--slow"></li>
+                    <li class="stats__result stats__result--fast"></li>
+                    <li class="stats__result stats__result--correct"></li>
+                    <li class="stats__result stats__result--unknown"></li>
+                    <li class="stats__result stats__result--unknown"></li>
+                    <li class="stats__result stats__result--unknown"></li>
+                    <li class="stats__result stats__result--unknown"></li>
+                    <li class="stats__result stats__result--unknown"></li>
+                    <li class="stats__result stats__result--unknown"></li>
+                </ul>
+            </section>
+        </template>
+
+        <!-- Финал -->
+
+        <template id="final">
+          <section class="final screen">
+              <header class="header final__header">
+                  <button class="back header__back">Вернуться к началу</button>
+              </header>
+              <section class="result final__resulr">
+                <h2 class="result__title">Тест пройден!</h2>
+                  <table class="result__table">
+                    <tr>
+                      <td class="result__number">1.</td>
+                      <td colspan="2">
+                        <ul class="stats">
+                          <li class="stats__result stats__result--wrong"></li>
+                          <li class="stats__result stats__result--slow"></li>
+                          <li class="stats__result stats__result--fast"></li>
+                          <li class="stats__result stats__result--correct"></li>
+                          <li class="stats__result stats__result--wrong"></li>
+                          <li class="stats__result stats__result--unknown"></li>
+                          <li class="stats__result stats__result--slow"></li>
+                          <li class="stats__result stats__result--unknown"></li>
+                          <li class="stats__result stats__result--fast"></li>
+                          <li class="stats__result stats__result--unknown"></li>
+                        </ul>
+                      </td>
+                      <td class="result__points">× 100</td>
+                      <td class="result__total">900</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td class="result__extra">Бонус за скорость:</td>
+                      <td class="result__extra">1 <span class="stats__result stats__result--fast"></span></td>
+                      <td class="result__points">× 50</td>
+                      <td class="result__total">50</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td class="result__extra">Бонус за жизни:</td>
+                      <td class="result__extra">2 <span class="stats__result stats__result--alive"></span></td>
+                      <td class="result__points">× 50</td>
+                      <td class="result__total">100</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td class="result__extra">Штраф за медлительность:</td>
+                      <td class="result__extra">2 <span class="stats__result stats__result--slow"></span></td>
+                      <td class="result__points">× 50</td>
+                      <td class="result__total">-100</td>
+                    </tr>
+                    <tr>
+                      <td colspan="5" class="result__total  result__total--final">950</td>
+                    </tr>
+                  </table>
+                  <table class="result__table">
+                    <tr>
+                      <td class="result__number">2.</td>
+                      <td>
+                        <ul class="stats">
+                          <li class="stats__result stats__result--wrong"></li>
+                          <li class="stats__result stats__result--slow"></li>
+                          <li class="stats__result stats__result--fast"></li>
+                          <li class="stats__result stats__result--correct"></li>
+                          <li class="stats__result stats__result--wrong"></li>
+                          <li class="stats__result stats__result--unknown"></li>
+                          <li class="stats__result stats__result--slow"></li>
+                          <li class="stats__result stats__result--wrong"></li>
+                          <li class="stats__result stats__result--fast"></li>
+                          <li class="stats__result stats__result--wrong"></li>
+                        </ul>
+                      </td>
+                      <td class="result__total"></td>
+                      <td class="result__total  result__total--final">fail</td>
+                    </tr>
+                  </table>
+                  <table class="result__table">
+                    <tr>
+                      <td class="result__number">3.</td>
+                      <td colspan="2">
+                        <ul class="stats">
+                          <li class="stats__result stats__result--wrong"></li>
+                          <li class="stats__result stats__result--slow"></li>
+                          <li class="stats__result stats__result--fast"></li>
+                          <li class="stats__result stats__result--correct"></li>
+                          <li class="stats__result stats__result--wrong"></li>
+                          <li class="stats__result stats__result--unknown"></li>
+                          <li class="stats__result stats__result--slow"></li>
+                          <li class="stats__result stats__result--unknown"></li>
+                          <li class="stats__result stats__result--fast"></li>
+                          <li class="stats__result stats__result--unknown"></li>
+                        </ul>
+                      </td>
+                      <td class="result__points">× 100</td>
+                      <td class="result__total">900</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td class="result__extra">Бонус за жизни:</td>
+                      <td class="result__extra">2 <span class="stats__result stats__result--alive"></span></td>
+                      <td class="result__points">× 50</td>
+                      <td class="result__total">100</td>
+                    </tr>
+                    <tr>
+                      <td colspan="5" class="result__total  result__total--final">950</td>
+                    </tr>
+                  </table>
+                </section>
+            </section>
+        </template>
+
+        <template id="confirm">
+            <section class="modal">
+              <form class="modal__form">
+                <h2 class="modal__title">Подтверждение</h2>
+                <p class="modal__text">Вы уверены, что хотите начать тест заново?</p>
+                <div class="modal__buttons">
+                  <button class="modal__btn">Да</button>
+                  <button class="modal__btn">Отмена</button>
+                </div>
+              </form>
+            </section>
+        </template>
+
+        <template id="modal-error">
+          <section class="modal">
+            <div class="modal__inner">
+              <h2 class="modal__title">Произошла ошибка!</h2>
+              <p class="modal__text modal__text--error">Статус: 404. Пожалуйста, перезагрузите страницу.</p>
+            </div>
+          </section>
+        </template>
+
+        <script type="text/javascript" src="dist/bundle.js"></script>
+    </body>
+</html>
